@@ -21,6 +21,14 @@
     <%= f.text_field :description %>
   </div>
 
+  <h3>Tasks</h3>
+  <div id="tasks">
+  <%= f.fields_for :tasks do |task| %>
+    <%= render 'task_fields', f: task %>
+  <div class="links">
+    <%= link_to_add_association 'add task', f, :tasks %>
+  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
